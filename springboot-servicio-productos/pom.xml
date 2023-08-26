@@ -8,10 +8,10 @@
 		<version>2.5.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.formacionbdi.springboot.app.productos</groupId>
-	<artifactId>springboot-servicio-productos</artifactId>
+	<groupId>com.springboot.app.productos</groupId>
+	<artifactId>springboot-service-products</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-servicio-productos</name>
+	<name>springboot-service-products</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

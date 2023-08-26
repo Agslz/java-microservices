@@ -11,7 +11,6 @@ import com.springboot.app.item.clients.ProductClientRest;
 import com.springboot.app.item.models.Item;
 
 @Service("serviceFeign")
-@Primary
 public class ItemServiceFeign implements ItemService {
 	
 	@Autowired ProductClientRest clientFeign;

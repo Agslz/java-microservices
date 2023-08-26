@@ -23,7 +23,7 @@ public class ProductController {
 
 	@GetMapping("/list")
 	public List<Product> list() {
-		return productService.findAll().stream().map(product ->{
+		return productService.findAll().stream().map(product -> {
 			product.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 			return product;
 		}).collect(Collectors.toList());
@@ -33,10 +33,14 @@ public class ProductController {
 	public Product detail(@PathVariable Long id) {
 		Product product = productService.findById(id);
 		product.setPort(Integer.parseInt(env.getProperty("local.server.port")));
-		boolean ok = false;
-		if(!ok) {
-			throw new RuntimeException("No se pudo cargar el producto");
-		}
+		
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 		return product;
 	}
 
