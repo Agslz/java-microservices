@@ -13,7 +13,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-
 @Entity
 @Table(name = "products")
 public class Product implements Serializable {
@@ -78,6 +77,5 @@ public class Product implements Serializable {
 	}
 	
 	private static final long serialVersionUID = -2694563184458944450L;
-
 
 }
