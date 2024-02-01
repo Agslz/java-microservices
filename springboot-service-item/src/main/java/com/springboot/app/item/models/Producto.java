@@ -2,16 +2,12 @@ package com.springboot.app.item.models;
 
 import java.util.Date;
 
-public class Product {
-
+public class Producto {
+	
 	private Long id;
-	
-	private String name;
-	
-	private Double price;
-	
+	private String nombre;
+	private Double precio;
 	private Date createAt;
-	
 	private Integer port;
 
 	public Integer getPort() {
@@ -21,37 +17,32 @@ public class Product {
 	public void setPort(Integer port) {
 		this.port = port;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getName() {
-		return name;
+	public String getNombre() {
+		return nombre;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-
-	public Double getPrice() {
-		return price;
+	public Double getPrecio() {
+		return precio;
 	}
-
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setPrecio(Double precio) {
+		this.precio = precio;
 	}
-
 	public Date getCreateAt() {
 		return createAt;
 	}
-
 	public void setCreateAt(Date createAt) {
 		this.createAt = createAt;
 	}
+	
+	
 
 }

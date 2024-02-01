@@ -2,36 +2,37 @@ package com.springboot.app.item.models;
 
 public class Item {
 
-	private Product product;
-	private Integer quantity;
+	private Producto producto;
+	private Integer cantidad;
 
 	public Item() {
 
 	}
 
-	public Item(Product product, Integer quantity) {
-		this.product = product;
-		this.quantity = quantity;
+	public Item(Producto producto, Integer cantidad) {
+		this.producto = producto;
+		this.cantidad = cantidad;
 	}
 
-	public Product getProduct() {
-		return product;
+	public Producto getProducto() {
+		return producto;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
+	public Integer getCantidad() {
+		return cantidad;
 	}
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
 	}
 	
 	public Double getTotal() {
-		return product.getPrice() + quantity.doubleValue();
+		return producto.getPrecio() * cantidad.doubleValue();
 	}
+	
 
 }

@@ -1,4 +1,4 @@
-package com.springboot.app.products.model.entity;
+package com.springboot.app.products.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,23 +14,23 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "products")
-public class Product implements Serializable {
+@Table(name = "productos")
+public class Producto implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String name;
-	private Double price;
+	private String nombre;
+
+	private Double precio;
 
 	@Column(name = "create_at")
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
-	
+
 	@Transient
 	private Integer port;
-	
 
 	public Integer getPort() {
 		return port;
@@ -48,20 +48,20 @@ public class Product implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public Double getPrice() {
-		return price;
+	public Double getPrecio() {
+		return precio;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setPrecio(Double precio) {
+		this.precio = precio;
 	}
 
 	public Date getCreateAt() {
@@ -72,10 +72,6 @@ public class Product implements Serializable {
 		this.createAt = createAt;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	private static final long serialVersionUID = -2694563184458944450L;
+	private static final long serialVersionUID = -3113816511009024953L;
 
 }

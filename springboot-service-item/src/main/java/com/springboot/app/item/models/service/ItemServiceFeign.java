@@ -7,22 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import com.springboot.app.item.clients.ProductClientRest;
+import com.springboot.app.item.clientes.ProductoClienteRest;
 import com.springboot.app.item.models.Item;
 
 @Service("serviceFeign")
 public class ItemServiceFeign implements ItemService {
 	
-	@Autowired ProductClientRest clientFeign;
+	@Autowired
+	private ProductoClienteRest clienteFeign;
 
 	@Override
 	public List<Item> findAll() {
-		return clientFeign.list().stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
+		return clienteFeign.listar().stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
 	}
 
 	@Override
-	public Item findById(Long id, Integer quantity) {
-		return new Item (clientFeign.detail(id), quantity);
+	public Item findById(Long id, Integer cantidad) {
+		return new Item (clienteFeign.detalle(id), cantidad);
 	}
 
 }

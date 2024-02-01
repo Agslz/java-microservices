@@ -11,26 +11,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.springboot.app.item.models.Item;
-import com.springboot.app.item.models.Product;
+import com.springboot.app.item.models.Producto;
 
 @Service("serviceRestTemplate")
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
-	private RestTemplate clientRest;
+	private RestTemplate clienteRest;
 
 	@Override
 	public List<Item> findAll() {
-		List<Product> products = Arrays.asList(clientRest.getForObject("http://service-products/list", Product[].class));
-		return products.stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
+		List<Producto> productos = Arrays
+				.asList(clienteRest.getForObject("http://servicio-productos/listar", Producto[].class));
+		return productos.stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
 	}
 
 	@Override
-	public Item findById(Long id, Integer quantity) {
+	public Item findById(Long id, Integer cantidad) {
 		Map<String, String> pathVariables = new HashMap<String, String>();
 		pathVariables.put("id", id.toString());
-		Product product = clientRest.getForObject("http://service-products/list/{id}", Product.class, pathVariables);
-		return new Item(product, quantity);
+		Producto producto = clienteRest.getForObject("http://servicio-productos/ver/{id}", Producto.class,
+				pathVariables);
+		return new Item(producto, cantidad);
+
 	}
 
 }
