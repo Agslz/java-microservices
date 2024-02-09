@@ -29,9 +29,9 @@ public class Usuario implements Serializable {
 	@Column(length = 60)
 	private String password;
 
-	private String nombre;
-
 	private Boolean enabled;
+	
+	private String nombre;
 
 	private String apellido;
 
