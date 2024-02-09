@@ -30,22 +30,25 @@ public class Usuario implements Serializable {
 	private String password;
 
 	private Boolean enabled;
-	
 	private String nombre;
-
 	private String apellido;
 
 	@Column(unique = true, length = 100)
 	private String email;
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "usuarios_roles"
-	,joinColumns = @JoinColumn(name = "usuario_id")
-	,inverseJoinColumns = @JoinColumn(name = "role_id")
-	,uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "role_id"})})
+	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"), 
+	inverseJoinColumns = @JoinColumn(name = "role_id"), 
+	uniqueConstraints = {@UniqueConstraint(columnNames = { "usuario_id", "role_id" }) })
 	private List<Role> roles;
 
-	private static final long serialVersionUID = 4002221912401133094L;
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 
 	public Long getId() {
 		return id;
@@ -71,20 +74,20 @@ public class Usuario implements Serializable {
 		this.password = password;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 	public Boolean getEnabled() {
 		return enabled;
 	}
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getApellido() {
@@ -102,5 +105,7 @@ public class Usuario implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	private static final long serialVersionUID = 4002221912401133094L;
 
 }
