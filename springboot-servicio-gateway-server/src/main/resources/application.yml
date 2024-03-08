@@ -26,11 +26,11 @@ spring:
         uri: lb://servicio-productos
         predicates:          - Path=/api/productos/**
         filters:
-          - name: CircuitBreaker
-            args:
-              name: productos
-              statusCodes: 500
-              fallbackUri: forward:/api/items/ver/9/cantidad/5          - StripPrefix=2
+        #  - name: CircuitBreaker
+       #     args:
+        #      name: productos
+        #      statusCodes: 500
+       #       fallbackUri: forward:/api/items/ver/9/cantidad/5          - StripPrefix=2
           - EjemploCookie=Hola mi mensaje personalizado, usuario, AgustinSchulze
       - id: servicio-items
         uri: lb://servicio-items
@@ -42,3 +42,16 @@ spring:
           - AddResponseHeader=token-response, 12345678
           - SetResponseHeader=Content-Type, text/json
           - AddRequestParameter=nombre, agustin
+      - id: servicio-oauth
+        uri: lb://servicio-oauth
+        predicates:
+          - Path=/api/security/**
+        filters:
+          - StripPrefix=2
+      - id: servicio-usuarios
+        uri: lb://servicio-usuarios
+        predicates:
+          - Path=/api/usuarios/**
+        filters:
+          - StripPrefix=2          
+        
