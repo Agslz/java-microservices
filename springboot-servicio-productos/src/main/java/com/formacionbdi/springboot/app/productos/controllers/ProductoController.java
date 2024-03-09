@@ -26,8 +26,8 @@ public class ProductoController {
 	@Autowired
 	private Environment env;
 
-	@Value("${server.port}")
-	private Integer port;
+	/*@Value("${server.port}")
+	private Integer port;*/
 
 	@Autowired
 	private IProductoService productoService;
